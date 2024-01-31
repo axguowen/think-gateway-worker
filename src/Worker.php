@@ -131,7 +131,7 @@ class Worker
         // 服务注册地址
         $gateway->registerAddress = $this->options['register_address'];
         // Gateway通讯密钥
-        $register->secretKey = $this->options['secret_key'];
+        $gateway->secretKey = $this->options['secret_key'];
         // 心跳间隔
         $gateway->pingInterval = $this->options['ping_interval'];
         // 心跳间隔
