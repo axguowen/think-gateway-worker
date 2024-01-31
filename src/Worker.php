@@ -51,9 +51,11 @@ class Worker
         // 比如启动了4个Gateway进程，startPort为4000，则每个Gateway进程分别启动的本地端口一般为4000、4001、4002、4003。
         // 当本机有多个Gateway/BusinessWorker项目时，需要把每个项目的startPort设置成不同的段
         'start_port' => 4000,
-        // 注册服务地址, 格式类似于 '127.0.0.1:1238'。
+        // 注册服务地址, 格式类似于 '127.0.0.1:1236'。
         // 如果是部署了多个register服务则格式是数组，类似['192.168.0.1:1236','192.168.0.2:1236']
-        'register_address' => '127.0.0.1:1238',
+        'register_address' => '127.0.0.1:1236',
+        // Gateway通讯密钥
+        'secret_key' => '',
         // 心跳检测时间间隔，单位：秒。如果设置为0代表不做任何心跳检测。
         'ping_interval' => 50,
         // 心跳检测频率，客户端连续$pingNotResponseLimit次$pingInterval时间内不发送任何数据(包括但不限于心跳数据)则断开链接，并触发onClose。
