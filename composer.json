@@ -1,0 +1,36 @@
+{
+    "name": "axguowen/think-gateway-worker",
+    "description": "Gateway Worker Service For ThinkPHP",
+    "keywords": [
+        "gateway",
+        "worker",
+        "thinkphp"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "axguowen",
+            "email": "axguowen@qq.com"
+        }
+    ],
+    "require": {
+        "workerman/gateway-worker": ">=3.0.0",
+        "topthink/framework": "^6.1 || ^8.0",
+        "ext-fileinfo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "think\\gateway\\worker\\": "src"
+        }
+    },
+    "extra": {
+        "think":{
+            "services":[
+                "think\\gateway\\worker\\Service"
+            ],
+            "config": {
+                "gatewayworker": "src/config.php"
+            }
+        }
+    }
+}
