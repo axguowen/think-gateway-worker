@@ -97,6 +97,9 @@ class Worker
     /**
      * 架构函数
      * @access public
+	 * @param App $app 应用实例
+     * @param Input $input 输入
+     * @param Output $output 输出
      * @return void
      */
     public function __construct(App $app, Input $input, Output $output)
@@ -121,6 +124,11 @@ class Worker
         $gateway = new Gateway($this->options['protocol'] . $this->options['listen'] . ':' . $this->options['port']);
         // gateway名称，status方便查看
         $gateway->name = $this->options['name'];
+        if(empty($gateway->name)){
+            $gateway->name = 'think-gateway-worker';
+        }
+        // 设置runtime路径
+        $this->app->setRuntimePath($this->app->getRuntimePath() . $gateway->name . DIRECTORY_SEPARATOR);
         // gateway进程数
         $gateway->count = $this->options['count'];
         // 本机ip，分布式部署时使用内网ip
